@@ -19,12 +19,12 @@ export default function Home() {
          */}
             <p className="text-white text-lgexit">Amicale des anciens élèves de Kipako depuis (home)</p>
             <div>
-                🔐 Se connecter
+                {/* 🔐 Se connecter
                 <LoginButton  mode="modal"  asChild>
                   <Button variant="secondary" size="lg">
                     Se connecter
                   </Button>
-               </LoginButton>
+               </LoginButton> */}
             </div>
         </div>      
   //  </main>

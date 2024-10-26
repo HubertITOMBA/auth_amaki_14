@@ -53,19 +53,32 @@ export const profilSchema = z.object({
     updatedAt: z.date(),
 }) 
 
-export const MembreSchema = z.object({
+export const AdherentSchema = z.object({
+    adherentId : z.string(),
     lastname: z.string(),
     firstname: z.string(),
+    // civility: z.string(), 
+    // maritalStatus: z.string(),    
     sex: z.string(),
     amount: z.string(),
-    bornedAt: z.date(),   
-    status: z.string(),
+    // bornedAt: z.date() ,   
+    // status: z.string(),
     phone: z.string(),
-    createdAt: z.date(),
-    updatedAt: z.date(),
 }) 
 
-export const AdressMembreSchema = z.object({
+export const FamilleAdherentSchema = z.object({
+    lastname: z.string(),
+    firstname: z.string(),
+    civility: z.string(), 
+    sex: z.string(),
+    bornedAt: z.date(),   
+    status: z.string(),
+}) 
+
+
+  
+
+export const AdresseAdherentSchema = z.object({
     streetnum: z.string(),
     street1: z.string(),
     street2: z.string(),

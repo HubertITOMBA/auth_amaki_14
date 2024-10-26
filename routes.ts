@@ -9,7 +9,6 @@ export const publicRoutes = [
     "/amicale",
     "/contact",
     "/evenements",
-    "/auth/new-verification"
 ];
 /**
  * Routes utilisées pour l'authentification
@@ -20,9 +19,9 @@ export const authRoutes = [
   "/auth/sign-in",
   "/auth/sign-up",
   "/auth/error",
-  "/auth/reset",
-  "/auth/new-password",
-  "/auth/new-verification",
+ "/auth/reset",
+ "/auth/new-password",
+"/auth/new-verification",
   ];
   
 /**

@@ -52,9 +52,9 @@ export const login = async (
         if(error instanceof AuthError) {
             switch(error.type){
                 case "CredentialsSignin":
-                    return { error: "Identifiants non valides !" }
+                    return { error: "Identifiants non valides!" }
                 default:
-                    return { error: "Une erreur s'est produite !" } 
+                    return { error: "Une erreur s'est produite!" } 
             }
         }
 

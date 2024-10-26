@@ -44,7 +44,7 @@ const CreateCotisationForm = () => {
   return (
         <Card className='w-full mt-4'>
             <CardHeader>
-                <CardTitle>Dernière cotisation</CardTitle>
+                <CardTitle>Mes cotisations</CardTitle>
                 <CardDescription>L&apos;assistance.</CardDescription>
             </CardHeader>
             <CardContent>

@@ -34,7 +34,7 @@ export const register = async (
         }
     })
 
-    await db.membre.create({
+    await db.adherent.create({
         data: {
             User: {
                 connect: {

@@ -23,34 +23,38 @@ import { Input } from '../ui/input'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { profilSchema } from '@/schemas'
+import { AdresseAdherentSchema } from '@/schemas'
 import Loading from '@/global/loading'
 
 
-const CreateProfileMembreForm = () => {
+const CreateAdresseAdherentForm = () => {
+     
 
-    const form = useForm<z.infer<typeof profilSchema>>({
-        resolver: zodResolver(profilSchema),
+    const form = useForm<z.infer<typeof AdresseAdherentSchema>>({
+        resolver: zodResolver(AdresseAdherentSchema),
         defaultValues: {
-            name: "",
-            email: "", 
-            image: "",
-            role : "",
+            streetnum: "",
+            street1: "",
+            street2: "",
+            codepost: "",
+            city: "",
+            country: "",
+            
           }
     })
 
-   
+  
     const router = useRouter()
     const isLoading = form.formState.isSubmitting
 
-    const onSubmit = async (data: z.infer<typeof profilSchema>) => {
+    const onSubmit = async (data: z.infer<typeof AdresseAdherentSchema>) => {
         console.log(data);
     }
 
   return (
         <Card className='w-full mt-4'>
             <CardHeader>
-                <CardTitle>Profil membre</CardTitle>
+                <CardTitle>Adresse</CardTitle>
                 <CardDescription>L&apos;assistance.</CardDescription>
             </CardHeader>
             <CardContent>
@@ -62,31 +66,14 @@ const CreateProfileMembreForm = () => {
                         <FormField 
                             disabled={isLoading}
                             control={form.control}
-                            name='name'
+                            name='street1'
                             render= {({ field }) => {
                                 <FormItem>
-                                    <FormLabel>Nom de profile</FormLabel>
+                                    <FormLabel>Prénom</FormLabel>
                                     <FormControl>
                                         <Input 
                                             {...field}
-                                            placeholder="Entre le-mail"
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            }}
-                        />
-                        <FormField 
-                            disabled={isLoading}
-                            control={form.control}
-                            name='email'
-                            render= {({ field }) => {
-                                <FormItem>
-                                    <FormLabel>E-mail</FormLabel>
-                                    <FormControl>
-                                        <Input 
-                                            {...field}
-                                            placeholder="Entre le-mail"
+                                            placeholder="Entre le nom de la rue"
                                         />
                                     </FormControl>
                                     <FormMessage />
@@ -94,7 +81,7 @@ const CreateProfileMembreForm = () => {
                             }}
                         />
 
-                     <Button
+                        <Button
                             type='submit'
                             disabled={isLoading}
                         >
@@ -109,4 +96,4 @@ const CreateProfileMembreForm = () => {
   )
 }
 
-export default CreateProfileMembreForm
+export default CreateAdresseAdherentForm

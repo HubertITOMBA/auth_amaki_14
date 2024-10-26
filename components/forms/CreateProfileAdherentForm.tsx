@@ -23,13 +23,13 @@ import { Input } from '../ui/input'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CotisationSchema, profilSchema, MembreSchema,AdressMembreSchema } from '@/schemas'
+import { profilSchema } from '@/schemas'
 import Loading from '@/global/loading'
 
 
-const CreateMembreForm = () => {
+const CreateProfileAdherentForm = () => {
 
-    const formProfil = useForm<z.infer<typeof profilSchema>>({
+    const form = useForm<z.infer<typeof profilSchema>>({
         resolver: zodResolver(profilSchema),
         defaultValues: {
             name: "",
@@ -39,29 +39,18 @@ const CreateMembreForm = () => {
           }
     })
 
-    const form = useForm<z.infer<typeof MembreSchema>>({
-        resolver: zodResolver(MembreSchema),
-        defaultValues: {
-            lastname: "",
-            firstname: "",
-            sex: "",
-            amount: "",
-            status: "",
-            phone: "",
-          }
-    })
-
+   
     const router = useRouter()
     const isLoading = form.formState.isSubmitting
 
-    const onSubmit = async (data: z.infer<typeof MembreSchema>) => {
+    const onSubmit = async (data: z.infer<typeof profilSchema>) => {
         console.log(data);
     }
 
   return (
         <Card className='w-full mt-4'>
             <CardHeader>
-                <CardTitle>Dernière cotisation</CardTitle>
+                <CardTitle>Profil membre</CardTitle>
                 <CardDescription>L&apos;assistance.</CardDescription>
             </CardHeader>
             <CardContent>
@@ -73,20 +62,38 @@ const CreateMembreForm = () => {
                         <FormField 
                             disabled={isLoading}
                             control={form.control}
-                            name='firstname'
+                            name='name'
                             render= {({ field }) => {
                                 <FormItem>
-                                    <FormLabel>Prénom</FormLabel>
+                                    <FormLabel>Nom de profile</FormLabel>
                                     <FormControl>
                                         <Input 
                                             {...field}
-                                            placeholder="Entre le prénom"
+                                            placeholder="Entre le-mail"
                                         />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             }}
                         />
+                        <FormField 
+                            disabled={isLoading}
+                            control={form.control}
+                            name='email'
+                            render= {({ field }) => {
+                                <FormItem>
+                                    <FormLabel>E-mail</FormLabel>
+                                    <FormControl>
+                                        <Input 
+                                            {...field}
+                                            placeholder="Entre le-mail"
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            }}
+                        />
+
                      <Button
                             type='submit'
                             disabled={isLoading}
@@ -102,4 +109,4 @@ const CreateMembreForm = () => {
   )
 }
 
-export default CreateMembreForm
+export default CreateProfileAdherentForm

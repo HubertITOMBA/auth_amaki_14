@@ -2,7 +2,12 @@ import { UserRole } from "@prisma/client"
 import { DefaultSession } from "next-auth"
 
 export type ExtendUser = DefaultSession["user"] & {
-    role: UserRole
+    role: UserRole;
+    status: STATUS;
+    civility: Civilities;
+    statuAdherent: MembreStatus;
+    statuMarital:  MaritalStatus;
+    isOAuth: boolean;
 }
 
 
